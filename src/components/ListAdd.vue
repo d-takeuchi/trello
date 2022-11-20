@@ -25,6 +25,7 @@ export default {
   methods: {
     addList() {
       this.$store.dispatch('addList', { title: this.title })
+      this.title = ''
     },
   },
   computed: {
@@ -43,5 +44,3 @@ export default {
   },
 }
 </script>
-
-<style></style>
