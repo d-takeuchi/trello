@@ -32,11 +32,23 @@ const store = new Vuex.Store({
     addList(state, payload) {
       state.lists.push({ title: payload.title, cards: [] })
     },
+    removeList(state, payload) {
+      state.lists.splice(payload.listIndex, 1)
+    },
+    addTask(state, payload) {
+      state.lists[payload.listIndex].cards.push({ task: payload.task })
+    },
   },
   //mutationをCommit(実行)する責務をactionsが持つ
   actions: {
     addList(context, payload) {
       context.commit('addList', payload)
+    },
+    removeList(context, payload) {
+      context.commit('removeList', payload)
+    },
+    addTask(context, payload) {
+      context.commit('addTask', payload)
     },
   },
 })
